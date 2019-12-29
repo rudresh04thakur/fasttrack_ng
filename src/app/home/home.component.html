@@ -1,0 +1,23 @@
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users; let i = index">
+            <td>{{user['name']}}</td>
+            <td>{{user['email']}}</td>
+            <td>{{user['mobile']}}</td>
+            <td>
+                <a routerLink="view/{{user['id']}}" class="btn btn-success">V</a>&nbsp;&nbsp;
+                <a [routerLink]="['edit',user['id']]" class="btn btn-info">E</a>&nbsp;&nbsp;
+                <button (click)="delete(user['id'])" class="btn btn-danger">D</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<router-outlet></router-outlet>

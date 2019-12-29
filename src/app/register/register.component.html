@@ -1,0 +1,34 @@
+<form [formGroup]="regGroup" (ngSubmit)="register(regGroup.value)" class="form col-md-6 col-md-offset-3">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input [formControl]="regGroup.controls.name" class="form-control" name="name" placeholder="Name">
+        <div class="alert alert-danger" *ngIf="regGroup.controls.name.hasError('required') && 
+        (regGroup.controls.name.touched || regGroup.controls.name.dirty)">Field is required</div>
+    </div>
+    <div class="form-group">
+        <label for="mobile">Mobile</label>
+        <input [formControl]="regGroup.controls.mobile" class="form-control" name="mobile" placeholder="Mobile">
+        <div class="alert alert-danger" *ngIf="regGroup.controls.mobile.hasError('required') && 
+        (regGroup.controls.mobile.touched || regGroup.controls.mobile.dirty)">Field is required</div>
+        <div class="alert alert-danger" *ngIf="regGroup.controls.mobile.hasError('pattern') && 
+        (regGroup.controls.mobile.touched || regGroup.controls.mobile.dirty)">Invalid Mobile Number</div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input [formControl]="regGroup.controls.email" class="form-control" name="email" placeholder="Email" type="email">
+        <div class="alert alert-danger" *ngIf="regGroup.controls.email.hasError('required') && 
+        (regGroup.controls.email.touched || regGroup.controls.email.dirty)">Field is required</div>
+        <div class="alert alert-danger" *ngIf="regGroup.controls.email.hasError('pattern') && 
+        (regGroup.controls.email.touched || regGroup.controls.email.dirty)">Invalid Email</div>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input [formControl]="regGroup.controls.password" class="form-control" 
+        name="password" placeholder="Password" type="password">
+        <div class="alert alert-danger" *ngIf="regGroup.controls.password.hasError('required') && 
+        (regGroup.controls.password.touched || regGroup.controls.password.dirty)">Field is required</div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success pull-right" [disabled]="regGroup.invalid" name="register" type="submit">Register</button>
+    </div>
+</form>

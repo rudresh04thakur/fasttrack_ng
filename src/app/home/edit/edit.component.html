@@ -1,0 +1,35 @@
+<form [formGroup]="editGroup" (ngSubmit)="editForm(editGroup.value)">
+<table class="table table-stripped">
+    <tr>
+        <th>Id</th>
+        <td><input name="id" readonly [formControl]="editGroup.controls.id"></td>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <td><input name="name" [formControl]="editGroup.controls.name"></td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td><input name="email" [formControl]="editGroup.controls.email"></td>
+    </tr>
+    <tr>
+        <th>Mobile</th>
+        <td><input name="mobile" [formControl]="editGroup.controls.mobile"></td>
+    </tr>
+    <tr>
+        <th>Password</th>
+        <td><input name="password" [formControl]="editGroup.controls.password"></td>
+    </tr>
+    <tr>
+        <th>Status</th>
+        <td><select [formControl]="editGroup.controls.status">
+            <option value="0">Active</option>
+            <option vlaue="1">Inactive</option>
+        </select></td>
+    </tr>
+    <tr>
+        <th></th>
+        <td><button type="submit" class="btn btn-succes">Save</button></td>
+    </tr>
+</table>
+</form>
